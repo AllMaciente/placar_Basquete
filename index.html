@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placar de Basquete</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#333333" />
+    <link rel="icon" href="icons/icon-192.png" />
+  </head>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then(() => console.log("✅ Service Worker registrado com sucesso!"))
+        .catch((err) =>
+          console.error("❌ Erro ao registrar Service Worker", err)
+        );
+    }
+  </script>
+  <body>
+    <h1>Cronômetro</h1>
+    <div class="timer-inputs">
+      <input id="minutesInput" type="number" min="0" max="59" value="10" /> :
+      <input id="secondsInput" type="number" min="0" max="59" value="00" />
+    </div>
+    <div class="buttons">
+      <button onclick="resetTimer()">Reset</button>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button>
+    </div>
+
+    <h2>Placar</h2>
+    <div class="scoreboard">
+      <div class="team">
+        <input id="teamAName" value="Time A" />
+        <input id="teamAScore" type="number" value="0" readonly />
+        <div class="score-buttons">
+          <button onclick="updateScore('A', 3)">+3</button>
+          <button onclick="updateScore('A', 2)">+2</button>
+          <button onclick="updateScore('A', 1)">+1</button>
+          <button onclick="updateScore('A', -1)">-1</button>
+        </div>
+      </div>
+      <div class="team">
+        <input id="teamBName" value="Time B" />
+        <input id="teamBScore" type="number" value="0" readonly />
+        <div class="score-buttons">
+          <button onclick="updateScore('B', 3)">+3</button>
+          <button onclick="updateScore('B', 2)">+2</button>
+          <button onclick="updateScore('B', 1)">+1</button>
+          <button onclick="updateScore('B', -1)">-1</button>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <button onclick="resetScores()">Resetar Placar</button>
+    </div>
+
+    <audio
+      id="alarmSound"
+      src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg"
+      preload="auto"
+    ></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
