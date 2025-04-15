@@ -1,7 +1,12 @@
+:root {
+  --backgorund-color: #1d1d1d;
+  --color-1: #f8f8ff;
+}
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f4f4f4;
+  background-color: var(--backgorund-color);
+  color: var(--color-1);
 }
 
 .timer-inputs {
@@ -53,6 +58,33 @@ body {
 .center {
   margin-top: 20px;
 }
+
+input {
+  background-color: var(--backgorund-color);
+  color: var(--color-1);
+  border: none;
+  font-family: Arial, sans-serif;
+}
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  background-color: var(--backgorund-color);
+  color: var(--color-1);
+  border: #00a080 solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media (orientation: portrait) {
   .scoreboard {
     width: 100vw;
